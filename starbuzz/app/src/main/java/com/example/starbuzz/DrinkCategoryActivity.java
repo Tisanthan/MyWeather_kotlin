@@ -10,8 +10,5 @@ public class DrinkCategoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drink_category);
-
-
-
     }
 }
