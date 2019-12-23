@@ -15,11 +15,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 
@@ -88,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void createUser(){
-        String email = editTextName.getText().toString().trim();
-        String password = editTextPass.getText().toString().trim();
+        final String email = editTextName.getText().toString().trim();
+        final String password = editTextPass.getText().toString().trim();
 
         if(email.isEmpty()){
             editTextName.setError("email Required");
@@ -113,13 +115,39 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if(task.isSuccessful()){
-
+                    startProfileActivity();
+                }else{
+                    if(task.getException() instanceof FirebaseAuthUserCollisionException){
+                        userLogin(email,password);
+                    }else {
+                        progressBar.setVisibility(View.INVISIBLE);
+                        Toast.makeText(MainActivity.this,task.getException().getMessage(),Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });
     }
+
+    private void userLogin(String email, String password){
+
+        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    startProfileActivity();
+                }else {
+                    progressBar.setVisibility(View.INVISIBLE);
+                    Toast.makeText(MainActivity.this,task.getException().getMessage(),Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+    }
+
     private void startProfileActivity(){
         Intent intent = new Intent(this,Main2Activity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
         
     }
 
