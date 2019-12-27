@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "761528251164",
+    "firebase_url": "https://saisurapi.firebaseio.com",
+    "project_id": "saisurapi",
+    "storage_bucket": "saisurapi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:761528251164:android:48ea9e32325aca2a8e40d9",
+        "android_client_info": {
+          "package_name": "com.example.saisurapi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "761528251164-cj1dbd3ggep0jokd5jjgj83ah9tu4ggi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.saisurapi",
+            "certificate_hash": "7852879ff0c81f6fc52cca84db8c2e6379d9189f"
+          }
+        },
+        {
+          "client_id": "761528251164-91f7em9gva8qqa5plrm00u2ke0p14lou.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAopMN3tkdXDSWiXwCM8PyPB3BPh-77x8w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "761528251164-91f7em9gva8qqa5plrm00u2ke0p14lou.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

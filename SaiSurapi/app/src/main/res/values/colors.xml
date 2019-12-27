@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF5733</color>
+    <color name="colorPrimaryDark">#03A9F4</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="brown">#FF5722</color>
+    <color name="teal">#008080</color>
+    <color name="fuchsia">#FF00FF</color>
+    <color name="acua">#00FFFF</color>
+    <color name="fave"> #2ecc71 </color>
+    <color name="black">#000000</color>
+    <color name="gray">#999BA6</color>
+    <color name="Einput">#1D202D</color>
+</resources>

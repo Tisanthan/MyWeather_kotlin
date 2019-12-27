@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">OhmSai</string>
+    <string name="User">Name</string>
+    <string name="password">Password</string>
+</resources>

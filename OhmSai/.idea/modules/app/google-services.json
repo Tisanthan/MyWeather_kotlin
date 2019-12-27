@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "542471403012",
+    "firebase_url": "https://ohmsai-2cf67.firebaseio.com",
+    "project_id": "ohmsai-2cf67",
+    "storage_bucket": "ohmsai-2cf67.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:542471403012:android:d266d744d59a2a90532751",
+        "android_client_info": {
+          "package_name": "com.example.ohmsai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "542471403012-enpvjd0pspmofjjkld28f2ucom24s7qe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ohmsai",
+            "certificate_hash": "7852879ff0c81f6fc52cca84db8c2e6379d9189f"
+          }
+        },
+        {
+          "client_id": "542471403012-ms6jrfb6drjbg3uejokp62njt1pafhql.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCj6OiYR4ph7kDpMYUyGk2BuXByr5C1X7E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "542471403012-ms6jrfb6drjbg3uejokp62njt1pafhql.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

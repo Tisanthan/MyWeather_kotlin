@@ -34,7 +34,7 @@ public class LoginPage extends AppCompatActivity {
                 if (task.isSuccessful()){
                     String token = task.getResult().getToken();
 //                    textView.setText("Token : " + token);
-                    saveToken(token);
+//                    saveToken(token);
                 }else {
 //                    textView.setText(task.getException().getMessage());
 
