@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -21,20 +22,21 @@ public class MainPage extends AppCompatActivity {
     public static final String NODE_USERS ="users";
     private FirebaseAuth mAuth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
+//        NotificationHelper.displayNotification(this,"tisa","toahtoa aaohtoan ajotanlmaot ha");
 
 
-        Bundle extras = getIntent().getExtras();
-        String name = extras.getString("name");
 
-        AlertDialog alertDialog = new AlertDialog.Builder(MainPage.this).create();
-        alertDialog.setTitle("Ohm Sai Ram");
-        alertDialog.setMessage("wel come"+ name);
-        alertDialog.show();
+//
+//        AlertDialog alertDialog = new AlertDialog.Builder(MainPage.this).create();
+//        alertDialog.setTitle("Ohm Sai Ram");
+//        alertDialog.setMessage("wel come "+ name);
+//        alertDialog.show();
 
 
 
@@ -46,12 +48,14 @@ public class MainPage extends AppCompatActivity {
             public void onComplete(@NonNull Task<InstanceIdResult> task) {
                 if (task.isSuccessful()){
                     String token = task.getResult().getToken();
-//                    saveToken(token);
+                    saveToken(token);
+                    Toast.makeText(MainPage.this, "YOU ARE IN", Toast.LENGTH_LONG).show();
                 }else {
 
                 }
             }
         });
+
     }
 
     @Override
@@ -66,9 +70,11 @@ public class MainPage extends AppCompatActivity {
     }
 
     private void saveToken(String token) {
+
         Bundle extras = getIntent().getExtras();
-        String name = extras.getString("Name");
-        User user = new User(name, token);
+        String name = extras.getString("name");
+
+        User user = new User(name,token);
 
         DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference(NODE_USERS);
 
@@ -77,7 +83,9 @@ public class MainPage extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
 
                 if (task.isSuccessful()) {
-                    Toast.makeText(MainPage.this, "Token Saved", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainPage.this, " Successfully enrolled ", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(MainPage.this, "Token Un Saved", Toast.LENGTH_LONG).show();
                 }
 
             }
