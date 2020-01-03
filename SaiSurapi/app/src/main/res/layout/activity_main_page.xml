@@ -5,12 +5,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@drawable/spritual"
     tools:context=".MainPage">
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycle"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/OHm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OHM SAI RAM"
+            android:textAlignment="center"
+            android:textSize="50sp"
+            android:textColor="@color/brown"
+            android:gravity="center_horizontal" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

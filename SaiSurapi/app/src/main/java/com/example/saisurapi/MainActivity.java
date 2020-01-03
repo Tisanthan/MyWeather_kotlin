@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         progressBar = findViewById(R.id.progress);
-        progressBar.setVisibility(View.INVISIBLE);
+        progressBar.setVisibility(View.GONE);
         editTextName =(EditText)findViewById(R.id.Name);
 
         findViewById(R.id.signUp).setOnClickListener(new View.OnClickListener() {
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     if (task.getException() instanceof FirebaseAuthUserCollisionException) {
                         userLogin(name);
                     } else {
-                        progressBar.setVisibility(View.INVISIBLE);
+                        progressBar.setVisibility(View.GONE);
                         Toast.makeText(MainActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     startProfileActivity();
                 } else {
-                    progressBar.setVisibility(View.INVISIBLE);
+                    progressBar.setVisibility(View.GONE);
                     Toast.makeText(MainActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                 }
             }
