@@ -36,12 +36,12 @@ public class WorkoutDetailFragment extends Fragment {
         super.onStart();
         View view = getView();
         if (view != null) {
+            TextView title = (TextView) view.findViewById(R.id.textTitle);
+            TextView description = (TextView) view.findViewById(R.id.desp);
+
             Workout workout = Workout.workouts[(int) workoutId];
 
-            TextView title = (TextView) view.findViewById(R.id.textTitle);
             title.setText(workout.getName());
-
-            TextView description = (TextView) view.findViewById(R.id.desp);
             description.setText(workout.getDescription());
         }
     }
