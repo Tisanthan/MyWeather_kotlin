@@ -60,7 +60,9 @@ public class LoginPage extends AppCompatActivity {
 
         DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference(NODE_USERS);
 
-        dbUsers.child(mAuth.getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+        dbUsers.child(mAuth.getCurrentUser().getUid())
+                .setValue(user)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
 

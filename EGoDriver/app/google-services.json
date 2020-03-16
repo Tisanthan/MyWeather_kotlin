@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "225182036124",
+    "firebase_url": "https://e-go-driver.firebaseio.com",
+    "project_id": "e-go-driver",
+    "storage_bucket": "e-go-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:225182036124:android:51e9eb71e344c7e7153d59",
+        "android_client_info": {
+          "package_name": "com.example.e_go_driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "225182036124-bt1ftjfark9164k1ugq9a80rqu39g0h3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.e_go_driver",
+            "certificate_hash": "7852879ff0c81f6fc52cca84db8c2e6379d9189f"
+          }
+        },
+        {
+          "client_id": "225182036124-smqlq88f0iivl4kfqvvqgddin3mjtmjh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFVEc5keb43LDBk6sDIHpwEMOfPjt6Ylo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "225182036124-smqlq88f0iivl4kfqvvqgddin3mjtmjh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
