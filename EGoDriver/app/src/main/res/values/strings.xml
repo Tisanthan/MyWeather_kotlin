@@ -4,4 +4,6 @@
     <string name="drivers">Drivers</string>
     <string name="txt_rider">LOOKING FOR THE RIDER APP</string>
     <string name="sign_in">SIGN IN</string>
+    <string name="register">REGISTER</string>
+    <string name="title_activity_welcome">Map</string>
 </resources>

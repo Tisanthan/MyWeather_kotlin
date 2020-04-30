@@ -1,12 +1,15 @@
 package com.example.e_go_driver;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
@@ -36,9 +39,15 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference users;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(FirebaseAuth.getInstance().getCurrentUser() != null){
+            startActivity(new Intent(MainActivity.this, welcome.class));
+            finish();
+        }
         setContentView(R.layout.activity_main);
 
         //init Firebase
@@ -50,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         btnRegister = (Button) findViewById(R.id.register);
         btnSingIn = (Button) findViewById(R.id.signIn);
         rootLayout = (RelativeLayout) findViewById(R.id.rootLayout);
+
 
 
         //Event
@@ -67,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
                 showSigninDialog();
             }
         });
+
+
 
     }
 
@@ -92,6 +104,11 @@ public class MainActivity extends AppCompatActivity {
 
                 dialog.dismiss();
 
+                //button disable if processing
+                btnSingIn.setEnabled(false);
+                btnRegister.setEnabled(false);
+
+
                 //Check validation
                 if (TextUtils.isEmpty(editEmail.getText().toString())) {
                     Snackbar.make(rootLayout, "Please make sure email address", Snackbar.LENGTH_SHORT).show();
@@ -106,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
+
                 auth.signInWithEmailAndPassword(editEmail.getText().toString(),editPass.getText().toString())
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
@@ -117,7 +135,14 @@ public class MainActivity extends AppCompatActivity {
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Snackbar.make(rootLayout, "Sign in unsuccessful"+e.getMessage(), Snackbar.LENGTH_SHORT).show();
+                                Snackbar.make(rootLayout, "Sign in unsuccessful"+e.getMessage(), Snackbar.LENGTH_LONG).show();
+
+                                // button enable
+                                btnSingIn.setEnabled(true);
+                                btnRegister.setEnabled(true);
+
+
+
                             }
                         })
                 ;
@@ -160,27 +185,33 @@ public class MainActivity extends AppCompatActivity {
 
                 dialog.dismiss();
 
+                //button dissable if processing
+                btnSingIn.setEnabled(false);
+                btnRegister.setEnabled(false);
+
                 //Check validation
                 if (TextUtils.isEmpty(editEmail.getText().toString())) {
-                    Snackbar.make(rootLayout, "Please enter email address", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(rootLayout, "Please enter email address", Snackbar.LENGTH_LONG).show();
                     return;
                 }
                 if (TextUtils.isEmpty(editPass.getText().toString())) {
-                    Snackbar.make(rootLayout, "Please enter Password", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(rootLayout, "Please enter Password", Snackbar.LENGTH_LONG).show();
                     return;
                 }
                 if (editPass.getText().toString().length() < 6) {
-                    Snackbar.make(rootLayout, "Please enter your name", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(rootLayout, "Please enter your name", Snackbar.LENGTH_LONG).show();
                     return;
                 }
                 if (TextUtils.isEmpty(editName.getText().toString())) {
-                    Snackbar.make(rootLayout, "Please enter your name", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(rootLayout, "Please enter your name", Snackbar.LENGTH_LONG).show();
                     return;
                 }
                 if (TextUtils.isEmpty(editPhone.getText().toString())) {
-                    Snackbar.make(rootLayout, "Please enter phone number", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(rootLayout, "Please enter phone number", Snackbar.LENGTH_LONG).show();
                     return;
                 }
+
+
 
                 auth.createUserWithEmailAndPassword(editEmail.getText().toString(), editPass.getText().toString())
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
@@ -199,7 +230,7 @@ public class MainActivity extends AppCompatActivity {
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void aVoid) {
-                                                Snackbar.make(rootLayout, "register Successful", Snackbar.LENGTH_SHORT)
+                                                Snackbar.make(rootLayout, "register Successful", Snackbar.LENGTH_LONG)
                                                         .show();
                                             }
                                         })
@@ -208,6 +239,10 @@ public class MainActivity extends AppCompatActivity {
                                             public void onFailure(@NonNull Exception e) {
                                                 Snackbar.make(rootLayout, "register Unsuccessful" + e.getMessage(), Snackbar.LENGTH_LONG)
                                                         .show();
+
+                                                btnSingIn.setEnabled(true);
+                                                btnRegister.setEnabled(true);
+
                                             }
                                         })
                                 ;
@@ -238,6 +273,7 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
 
     }
+
 
 
 }
