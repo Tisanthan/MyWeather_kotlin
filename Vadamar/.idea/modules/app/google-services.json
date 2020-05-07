@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "647523012578",
+    "firebase_url": "https://vadamar-2ccd7.firebaseio.com",
+    "project_id": "vadamar-2ccd7",
+    "storage_bucket": "vadamar-2ccd7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647523012578:android:90855d807f17336c7473bb",
+        "android_client_info": {
+          "package_name": "com.example.vadamar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647523012578-o6u5t4o3q5obp3nadr2t6g5e9bf5joe7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vadamar",
+            "certificate_hash": "7852879ff0c81f6fc52cca84db8c2e6379d9189f"
+          }
+        },
+        {
+          "client_id": "647523012578-a1164dmp3hnnbjmlj5sred1b3nf6r62p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjHL_1quhX4gZ__MlTAdL857GHdrVlhYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "647523012578-a1164dmp3hnnbjmlj5sred1b3nf6r62p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

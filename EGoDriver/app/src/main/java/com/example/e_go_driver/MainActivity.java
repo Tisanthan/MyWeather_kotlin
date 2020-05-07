@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.e_go_driver.Model.User;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -84,11 +85,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void showSigninDialog() {
 
-        final AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        final AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
         dialog.setTitle("SignIN");
         dialog.setMessage("Please use Email and Password");
 
-        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
         View layout_signin = layoutInflater.inflate(R.layout.layout_signin, null);
 
         final TextInputEditText editEmail = layout_signin.findViewById(R.id.edtEmail);
