@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/Nav_ppd_pira"
+            android:title="@string/ppd_tamil"
+            android:icon="@drawable/office"/>
+
+        <item
+            android:id="@+id/Nav_ppd_seyal"
+            android:title=  "@string/pp_tamil"
+            android:icon="@drawable/office"/>
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/Nav_share"
+                android:title="Share"
+                android:icon="@android:drawable/ic_menu_share"/>
+            <item
+                android:id="@+id/Nav_Rate"
+                android:title="Rate Us"
+                android:icon="@android:drawable/ic_media_rew"/>
+        </menu>
+    </item>
+
+</menu>

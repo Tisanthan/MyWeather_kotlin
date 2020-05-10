@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">Vadamar</string>
     <string name="Dialog_tamil">வரப்புயர நீர் உயரும்.</string>
+    <string name="ppd_tamil">வடமராட்சி பிரதேச சபை</string>
+    <string name="pp_tamil">வடமராட்சி பிரதேச செயலகம்</string>
     <string name="search_bar_name">Search....</string>
+
+    <string name="nav_toolbar_open">Open navigation drawer</string>
+    <string name="nav_toolbar_close">Close navigation drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

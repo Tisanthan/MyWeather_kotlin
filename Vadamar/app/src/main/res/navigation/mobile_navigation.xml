@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/point_home">
+
+    <fragment
+        android:id="@+id/point_home"
+        android:name="com.example.vadamar.ui.home.point_home"
+        android:label="@string/ppd_tamil" />
+    <fragment
+        android:id="@+id/point_ds_office"
+        android:name="com.example.vadamar.ui.ds_office.point_ds_office"
+        android:label="fragment_point_ds_office"
+        tools:layout="@layout/fragment_point_ds_office" />
+</navigation>

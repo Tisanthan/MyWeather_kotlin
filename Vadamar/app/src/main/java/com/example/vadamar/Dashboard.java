@@ -1,31 +1,85 @@
 package com.example.vadamar;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.view.Gravity;
+import android.view.MenuItem;
 
-import com.example.vadamar.Model.User;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.ui.AppBarConfiguration;
 
-public class Dashboard extends AppCompatActivity {
+import com.example.vadamar.ui.ds_office.point_ds_office;
+import com.example.vadamar.ui.home.point_home;
+import com.google.android.material.navigation.NavigationView;
+import com.infideap.drawerbehavior.AdvanceDrawerLayout;
 
+public class Dashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    private AppBarConfiguration mAppBarConfiguration;
+    private AdvanceDrawerLayout drawer;
+    Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        drawer = (AdvanceDrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.nav_toolbar_open, R.string.nav_toolbar_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        drawer.setViewScale(Gravity.START, 0.9f);
+        drawer.setRadius(Gravity.START, 35);
+        drawer.setViewElevation(Gravity.START, 20);
+
+        fragment = new point_home();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.add(R.id.nav_host_fragment, new point_home());
+        ft.commit();
 
 
     }
 
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            moveTaskToBack(true);
+        }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        Fragment fragment;
+
+        if(id == R.id.Nav_ppd_pira){
+            fragment = new point_home();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.nav_host_fragment, new point_home());
+            ft.commit();
+        } else if( id == R.id.Nav_ppd_seyal ){
+            fragment = new point_ds_office();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.nav_host_fragment, new point_ds_office());
+            ft.commit();
+        }
+        AdvanceDrawerLayout advanceDrawerLayout = (AdvanceDrawerLayout) findViewById(R.id.drawer_layout);
+        advanceDrawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
 
 }
