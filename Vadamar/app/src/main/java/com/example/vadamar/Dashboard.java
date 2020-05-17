@@ -1,5 +1,8 @@
 package com.example.vadamar;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -24,10 +27,29 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     private AdvanceDrawerLayout drawer;
     Fragment fragment;
 
+    public static final String CHANNEL_ID = "Simplified CodeId";
+    private static final String CHANNEL_Name = "Simplified CodeName";
+    private static final String CHANNEL_DESC = "Simplified CodeDescription";
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID,CHANNEL_Name, NotificationManager.IMPORTANCE_DEFAULT);
+            channel.setDescription(CHANNEL_DESC);
+            NotificationManager managerCompat = getSystemService(NotificationManager.class);
+            managerCompat.createNotificationChannel(channel);
+
+        }
+
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
