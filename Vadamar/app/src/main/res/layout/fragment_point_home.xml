@@ -6,17 +6,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".Dashboard"
-    tools:showIn="@layout/dashboard_bar">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Notice Board"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:text="@string/notice_board"
         android:textColor="#3D3C3C"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textStyle="bold" />
 
     <RelativeLayout
@@ -40,7 +38,7 @@
             android:layout_height="30dp"
             android:layout_alignEnd="@id/search_bar"
             android:layout_centerInParent="true"
-            android:contentDescription="Search"
+            android:contentDescription="@string/search"
             android:src="@drawable/ic_baseline_search_24" />
     </RelativeLayout>
 
@@ -49,6 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:scrollbars="vertical" />
+        android:scrollbars="vertical"
+        tools:listitem="@layout/notice" />
 
 </LinearLayout>

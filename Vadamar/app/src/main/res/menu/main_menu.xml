@@ -11,6 +11,10 @@
             android:id="@+id/Nav_ppd_seyal"
             android:title=  "@string/pp_tamil"
             android:icon="@drawable/office"/>
+        <item
+            android:id="@+id/Nav_signOut"
+            android:title="SignOut"
+            android:icon="@drawable/ic_outline_flight_land_24"/>
 
     </group>
 

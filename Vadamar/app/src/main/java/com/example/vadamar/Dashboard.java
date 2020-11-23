@@ -2,6 +2,7 @@ package com.example.vadamar;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -19,6 +20,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import com.example.vadamar.ui.ds_office.point_ds_office;
 import com.example.vadamar.ui.home.point_home;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.infideap.drawerbehavior.AdvanceDrawerLayout;
 
 public class Dashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -26,6 +28,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     private AppBarConfiguration mAppBarConfiguration;
     private AdvanceDrawerLayout drawer;
     Fragment fragment;
+    FirebaseAuth auth;
 
     public static final String CHANNEL_ID = "Simplified CodeId";
     private static final String CHANNEL_Name = "Simplified CodeName";
@@ -33,10 +36,13 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        auth = FirebaseAuth.getInstance();
 
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
@@ -47,7 +53,6 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             managerCompat.createNotificationChannel(channel);
 
         }
-
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -98,6 +103,11 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.nav_host_fragment, new point_ds_office());
             ft.commit();
+        } else if(id == R.id.Nav_signOut){
+            auth.signOut();
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);//makesure user cant go back
+            startActivity(intent);
         }
         AdvanceDrawerLayout advanceDrawerLayout = (AdvanceDrawerLayout) findViewById(R.id.drawer_layout);
         advanceDrawerLayout.closeDrawer(GravityCompat.START);

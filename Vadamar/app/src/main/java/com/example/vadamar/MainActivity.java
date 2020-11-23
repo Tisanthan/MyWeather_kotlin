@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -86,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
                 final AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
                 dialog.setTitle("SignIN");
                 dialog.setMessage("Please use Your Name");
-
                 LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
                 View layout_signin = layoutInflater.inflate(R.layout.layout_signin, null);
                 dialog.setView(layout_signin);
